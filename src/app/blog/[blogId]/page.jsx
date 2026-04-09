@@ -1,7 +1,4 @@
-import Link from 'next/link';
 import React from 'react';
-
-const BlogPage = () => {
 
   const blogs = [
   {
@@ -37,17 +34,22 @@ const BlogPage = () => {
     content: "Stay ahead in design by following the latest UI/UX trends. Learn about modern layouts, accessibility improvements, and user-centered design principles."
   }
 ];
+
+const BlogDetailPage = async({ params }) => {
+  const {blogId} = await params
+  const blog = blogs.find(blog => blog.id === parseInt(blogId))
+  console.log('show me blog',blog);
   return (
-    <div className='w-10/12 mx-auto'>
-      <h2 className='text-3xl font-bold m-4'>Blogs</h2>
+    <div>
+      <h4 className="text-3xl">Blog Detail Coming Soon</h4>
       {
-        blogs.map(blog => <div key={blog.id}>
-          <h3 className='text-4xl font-bold mb-2'>{blog.title}</h3>
-          <Link href={`/blog/${blog.id}`}>Show Details</Link>
-        </div>)
+        blog && <div>
+          <h2 className='text-5xl'>{blog.title}</h2>
+          <p>{blog.content}</p>
+        </div>
       }
     </div>
   );
 };
 
-export default BlogPage;
+export default BlogDetailPage;
