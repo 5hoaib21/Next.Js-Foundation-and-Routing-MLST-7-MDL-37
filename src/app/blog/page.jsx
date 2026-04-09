@@ -1,6 +1,17 @@
 import Link from 'next/link';
 import React from 'react';
 
+import { Roboto,Poppins } from 'next/font/google'
+const roboto = Roboto({
+  weight: '900',
+  subsets: ['latin']
+})
+
+const poppins = Poppins({
+  weight: '400',
+  subsets: ['latin']
+})
+
 export const metadata = {
   title: 'Blogs',
   description: 'All blogs are here'
@@ -43,12 +54,12 @@ const BlogPage = () => {
   }
 ];
   return (
-    <div className='w-10/12 mx-auto'>
+    <div className={roboto.className}>
       <h2 className='text-3xl font-bold m-4'>Blogs</h2>
       {
         blogs.map(blog => <div key={blog.id}>
           <h3 className='text-4xl font-bold mb-2'>{blog.title}</h3>
-          <Link href={`/blog/${blog.id}`}>Show Details</Link>
+          <Link href={`/blog/${blog.id}`}><i><strong className={poppins.className}>Show Details</strong></i></Link>
         </div>)
       }
     </div>
