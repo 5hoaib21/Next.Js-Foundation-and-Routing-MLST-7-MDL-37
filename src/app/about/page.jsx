@@ -1,6 +1,10 @@
 import Image from 'next/image';
 import React from 'react';
-import shoaib from '../../assets/image/shubu.jpg'
+import shoaib from '../../assets/image/shubu.jpg' 
+export const metadata = {
+  title: 'About',
+  description: 'About section are here'
+}
 
 const AboutPage = () => {
   return (
